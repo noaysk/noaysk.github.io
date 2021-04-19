@@ -106,32 +106,14 @@ function toggleLoading(isLoading) {
   // times (i.e., we need to wait until the loading finishes).  We decide what to
   // do based on the value of the isLoading argument.
   // <span><i class="fas fa-search" title="search"></i> Search</span>
-  var button = document.getElementById("searchButton");
+  butt = document.querySelector('#search_submit');
   if (isLoading) {
-    button.innerHTML = '';
-    button.disabled = true;
-    var span = document.createElement("span");
-    var i = document.createElement("i");
-    var txt = document.createTextNode(" Loading");
-
-    i.setAttribute("class", "fas fa-hourglass-half");
-    i.setAttribute("title", "search");
-    span.appendChild(i);
-    span.appendChild(txt); 
-    button.appendChild(span); 
-   }
-  else{
-    button.innerHTML = '';
-    button.disabled = false;
-    var span = document.createElement("span");
-    var i = document.createElement("i");
-    var txt = document.createTextNode(" Search");
-
-    i.setAttribute("class", "fas fa-search");
-    i.setAttribute("title", "search");
-    span.appendChild(i);
-    span.appendChild(txt); 
-    button.appendChild(span);
+    butt.setAttribute("disabled", "disabled");
+    butt.innerHTML = "<i class='fas fa-search'> Loading…</i>";
   }
-  console.log('TODO - toggle the state of the Search button to/from Loading');
+  else {
+    butt.removeAttribute("disabled");
+    butt.innerHTML = "<i class='fas fa-search'> Search</i>";
+  }
+  //console.log('TODO - toggle the state of the Search button to/from Loading');
 }

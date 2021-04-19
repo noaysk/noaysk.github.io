@@ -122,11 +122,18 @@ footer {
 /**
  * TODO: style the Search Form
  */
+ .search {
+  margin-bottom: 10px;
+  
+}
 
- #search{
-  display: flex;
+#search_query {
+  width: 75%;
   flex-wrap: wrap;
- }
- #searchBar{
-  width: 650px;
- }
+  display: inline-block;
+}
+
+#search_submit {
+  width: 20%;
+  display: inline-block;
+}

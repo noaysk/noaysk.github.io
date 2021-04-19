@@ -74,10 +74,12 @@
 
           <fieldset>
             <legend>Location</legend>
-            <div id="latitudeDiv"><label id="labelLatitude" for="Latitude" class="required">Latitude</label></div>
+
+            <div id="ELatitude">
+              <label id="labelLatitude" for="Latitude" class="required">Latitude</label></div>
                 <input id="latitude" name="latitude" type="text" placeholder="43.7955" required/>
                 
-                <div id="longitudeDiv"><label id="labelLongitude" for="longitude" class="required">Longitude</label> </div>
+                <div id="ELongitude"><label id="labelLongitude" for="longitude" class="required">Longitude</label> </div>
                 <input id="longitude" name="longitude" type="text" placeholder="-79.3496" required/>
                 
                 <input id="chkTerms" name="terms" type="checkbox"/>
@@ -86,14 +88,15 @@
 
           <fieldset>
             <legend>Photo</legend>
+
                 <label id="labelPhotographerName" for="photographerName">Photographer Name</label>
-                <input id="photographerName" name="photographerName" type="text" placeholder="Karen Shu"/>
+                <input id="photographerName" type="text" placeholder="Karen Shu"/>
                 
                 <label id="labelphotographerEmail" for="photographerEmail">Photographer Email</label>
-                <input id="photographerEmail" name="photographerEmail" type="text" placeholder="kshu@photos.com"/>
+                <input id="photographerEmail" type="text" placeholder="kshu@photos.com"/>
 
                 <label id="lablePhoto" for="photo">Photo</label>
-                <input id="photo" name="photo" type="file"/>
+                <input id="photo" type="file"/>
 
                 <label id="labelLicense" for="license">License (<a href="https://creativecommons.org/choose/">help on choosing a license</a>)</label>
                 <select id="license" name="license">
@@ -106,10 +109,8 @@
                 </select>         
                </fieldset>
 
-          <input id="submit" name="submit" type="submit" placeholder="Karen Shu"/>
-                
-        </form>
-        
+          <input id="submit" name="submit" type="submit" value="Submit"> 
+        </form>  
       </section>
     </main>
     <!-- Your custom form validation code goes in the file js/validate.js -->

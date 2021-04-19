@@ -5,60 +5,28 @@ function validate(event) {
   // invalid, show the appropriate error message in the form, and stop the 
   // form from being submitted. If both values are valid, allow the form to be
   // submitted.
-  console.log('TODO - validate the longitude, latitude values before submitting');
+  //console.log('TODO - validate the longitude, latitude values before submitting');
   var lat = document.querySelector("#latitude").value;
   var lon = document.querySelector("#longitude").value;
-
-  var errorLatitude = document.getElementById("latitudeDiv");
-  var errorLongitude = document.getElementById("longitudeDiv");
-
-  if (errorLatitude.childNodes.length > 1) {
-    errorLatitude.removeChild(errorLatitude.lastChild);
-  }
   
-  if (errorLongitude.childNodes.length > 1) {
-    errorLongitude.removeChild(errorLongitude.lastChild);
-  }
-
-  if(lat) {
-    if (!isNaN(lat)) {
-      var latNum = parseFloat(lat);
-      if (latNum >= -90 && latNum <= 90) {
-        if(lon) {
-          if (!isNaN(lon)) {
-            var lonNum = parseFloat(lon);
-            if (lonNum >= -180 && lonNum <= 180) {
-              return true;      
-            }
-            else{
-              var txt = document.createTextNode(" must be a valid Longitude (-180 to 180)");
-              errorLongitude.appendChild(txt);
-              return false;
-            }
-          }
-          else{
-            var txt = document.createTextNode(" must be a valid Longitude (-180 to 180)");
-            errorLongitude.appendChild(txt);
-            return false;
-          }
-        }            
-      }
-      else{
-        var txt = document.createTextNode(" must be a valid Latitude (-90 to 90)");
-        errorLatitude.appendChild(txt);
-        return false;
-      }
-    }
-    else{
-      var txt = document.createTextNode(" must be a valid Latitude (-90 to 90)");
-      errorLatitude.appendChild(txt);
-      return false;
-    }
-  }
-
+  var errorLatitude = document.getElementById("eLatitude");
+  var errorLongitude = document.getElementById("eLongitude");
+  var m_result      = true;
   
+  if (lat < -90 || lat > 90 || isNaN(lat)) {
+    errorLatitude.innerText = '* must be a valid Latitude (-90 to 90)';
+    return false;
+  }
+  else errorLatitude.innerText = '*';
 
+  if (lon < -180 || (lon > 180 || isNaN(lon))) {
+    errorLongitude.innerText = '* must be a valid Longitude (-180 to 180)';
+    return false;
+  } else errorLongitude.innerText = '*';
+
+  return m_result;
 }
+
 
 // Wait for the window to load, then set up the submit event handler for the form.
 window.onload = function() {
